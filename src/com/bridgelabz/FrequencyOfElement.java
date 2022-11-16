@@ -1,17 +1,31 @@
 package com.bridgelabz;
 
+import java.util.ArrayList;
+
 public class FrequencyOfElement {
-    static void frequency(int[] arr, int element){
-        int elementCount = 0;
-        for(int i=0; i<arr.length; i++){
-            if(arr[i] == element){
-                elementCount++;
+    static void frequencyOfElements(int[] arr){
+        System.out.println("Duplicate elements are");
+        ArrayList<Integer> arrli = new ArrayList<>();
+        for(int i=0;i <arr.length-1; i++){
+            int count = 1;
+            if(!arrli.contains(arr[i])){
+                for(int j=i+1; j<arr.length; j++){
+                    if(arr[j] == arr[i]){
+                        count++;
+                    }
+                }
+                arrli.add(arr[i]);
+                System.out.println("Frequency of " + arr[i] + " is " + count);
             }
+
         }
-        System.out.println(elementCount);
+
+
     }
-    public static void main(String[] args){
-        int[] arr1 = {2,6,3,2,8,1,7,2,5};
-        frequency(arr1, 2);
+    public static void main(String[] args) {
+        int[] arr = {1,2,3,1,4,5,6,2};
+        frequencyOfElements(arr);
     }
 }
+
+
